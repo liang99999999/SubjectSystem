@@ -3,9 +3,7 @@ package com.example.demo.vo;
 import java.util.List;
 
 import com.example.demo.entity.Course;
-import com.fasterxml.jackson.annotation.JsonInclude;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class CourseRequest {
 
 	private Course course;

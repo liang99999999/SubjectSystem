@@ -15,29 +15,29 @@ public class SelectCourse{
 
 	@Id
 	@Column(name = "studentid")
-	private String studentId;
+	private String studentId;  //學號
 
 	@Column(name = "name")
-	private String name;
+	private String name;  //姓名
 
 	@Id
 	@Column(name = "course_number")
-	private String courseNumber;
+	private String courseNumber;  //課程代碼
 
 	@Column(name = "course_name")
-	private String courseName;
+	private String courseName;  //課程名稱
 
 	@Column(name = "school_day")
-	private String schoolDay;
+	private String schoolDay;  //上課星期幾
 
 	@Column(name = "start_time")
-	private LocalTime startTime;;
+	private LocalTime startTime;;  //開始時間
 
 	@Column(name = "end_time")
-	private LocalTime endTime;;
+	private LocalTime endTime;; //結束時間
 
 	@Column(name = "credit")
-	private Integer credit;
+	private Integer credit;  //學分
 
 	public SelectCourse(){
 		

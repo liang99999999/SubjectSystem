@@ -6,12 +6,14 @@ import com.example.demo.vo.StudentRequest;
 import com.example.demo.vo.StudentResponse;
 
 public interface StudentService {
-	
+	// 新增學生
 	public StudentResponse addStudent(StudentRequest studentRequest);
-	
+
+	// 刪除學生
 	public StudentResponse deleteStudent(StudentRequest studentRequest);
-	
-	public SelectCourseResponse getStudentData(SelectCourseRequest studentRequest);
+
+	// 尋找學生選課資料
+	public SelectCourseResponse getStudentData(SelectCourseRequest selectCourseRequest);
 }
 
 

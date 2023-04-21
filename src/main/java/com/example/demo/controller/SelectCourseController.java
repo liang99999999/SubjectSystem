@@ -23,37 +23,16 @@ public class SelectCourseController {
 	@Autowired
 	public StudentService studentService;
 
+
 	@PostMapping("/add_select_course")
 	public SelectCourseResponse addSelectCourse(@RequestBody SelectCourseRequest selectCourseRequest) {
-		
+
 		return selectCourseService.addSelectCourse(selectCourseRequest);
 	}
-	
+
 	@PostMapping("/delete_select_course")
 	public SelectCourseResponse deleteSelectCourse(@RequestBody SelectCourseRequest selectCourseRequest) {
-		
+
 		return selectCourseService.deleteSelectCourse(selectCourseRequest);
 	}
-	
 }
-
-
-//@RestController
-//public class SelectCourseController {
-//
-//	@Autowired
-//	public SelectCourseService selectCourseService;
-//
-//	@Autowired
-//	public CourseService courseService;
-//
-//	@Autowired
-//	public StudentService studentService;
-//
-//	@PostMapping("/add_select_course")
-//	public SelectCourseResponse addSelectCourse(@RequestBody SelectCourseRequest selectCourseRequest) {
-//
-//		return selectCourseService.addSelectCourse(selectCourseRequest);
-//	}
-//
-//}

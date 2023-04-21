@@ -5,8 +5,10 @@ import java.io.Serializable;
 public class SelectCourseId implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	private String studentId;
-	private String courseNumber;
+	
+	private String studentId;   //學號
+	
+	private String courseNumber;  //課程代碼
 
 	public String getStudentId() {
 		return studentId;

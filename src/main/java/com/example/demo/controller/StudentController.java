@@ -15,7 +15,7 @@ import com.example.demo.vo.StudentResponse;
 
 @RestController
 public class StudentController {
-
+	
 	@Autowired
 	public SelectCourseService selectCourseService;
 	
@@ -25,56 +25,21 @@ public class StudentController {
 	@Autowired
 	public StudentService studentService;
 
-	
+
 	@PostMapping("/add_student")
 	public StudentResponse addStudent(@RequestBody StudentRequest studentRequest) {
 		return studentService.addStudent(studentRequest);
 	}
-	
+
 	@PostMapping("/delete_student")
 	public StudentResponse deleteStudent(@RequestBody StudentRequest studentRequest) {
-		
+
 		return studentService.deleteStudent(studentRequest);
 	}
-	
+
 	@PostMapping("/get_student_data")
 	public SelectCourseResponse getStudentData(@RequestBody SelectCourseRequest selectCourseRequest) {
-		
+
 		return studentService.getStudentData(selectCourseRequest);
 	}
-	
 }
-
-
-
-//@RestController
-//public class StudentController {
-//
-//	@Autowired
-//	public SelectCourseService selectCourseService;
-//	
-//	@Autowired
-//	public CourseService courseService;
-//	
-//	@Autowired
-//	public StudentService studentService;
-//
-//	
-//	@PostMapping("/add_student")
-//	public StudentResponse addStudent(@RequestBody StudentRequest studentRequest) {
-//		return studentService.addStudent(studentRequest);
-//	}
-//	
-//	@PostMapping("/delete_student")
-//	public StudentResponse deleteStudent(@RequestBody StudentRequest studentRequest) {
-//		
-//		return studentService.deleteStudent(studentRequest);
-//	}
-//	
-//	@PostMapping("/get_student_data")
-//	public SelectCourseResponse getStudentData(@RequestBody SelectCourseRequest selectCourseRequest) {
-//		
-//		return studentService.getStudentData(selectCourseRequest);
-//	}
-//	
-//}
