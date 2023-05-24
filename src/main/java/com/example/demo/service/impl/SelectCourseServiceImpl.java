@@ -126,13 +126,20 @@ public class SelectCourseServiceImpl implements SelectCourseService {
 
 	@Override
 	public SelectCourseResponse deleteSelectCourse(SelectCourseRequest selectCourseRequest) {
-
+		
 		// 從請求中取得待新增的課程清單
 		List<SelectCourse> selectCourseList = selectCourseRequest.getSelectCourseList();
+<<<<<<< HEAD
 
 		// 建立空的 List 放沒問題的資料
 		List<SelectCourse> deleteSelectList = new ArrayList<>();
 
+=======
+		
+		// 建立空的 List 放沒問題的資料
+		List<SelectCourse> deleteSelectList = new ArrayList<>();
+		
+>>>>>>> 7a859556eeceafca50f802357e2a6c68c1c93bfd
 		// 遍歷課程列表
 		for (SelectCourse item : selectCourseList) {
 			// 確認學號和姓名跟課程代碼不得為空白
@@ -140,6 +147,7 @@ public class SelectCourseServiceImpl implements SelectCourseService {
 					|| !StringUtils.hasText(item.getCourseNumber())) {
 				return new SelectCourseResponse("學號和姓名跟課程代碼不得為空白");
 			}
+<<<<<<< HEAD
 
 			// 確認學號是否不存在或是學生跟姓名錯誤
 			if (!studentDao.existsByStudentIdAndName(item.getStudentId(), item.getName())) {
@@ -160,15 +168,47 @@ public class SelectCourseServiceImpl implements SelectCourseService {
 						item.getCourseNumber(), courseItem.getCourseName(), courseItem.getSchoolDay(),
 						courseItem.getStartTime(), courseItem.getEndTime(), courseItem.getCredit());
 
+=======
+			
+			//確認學號是否不存在或是學生跟姓名錯誤
+			if (!studentDao.existsByStudentIdAndName(item.getStudentId(), item.getName())) {
+				return new SelectCourseResponse("學號不存在或是學生跟姓名錯誤");
+			}
+			
+			List<SelectCourse> selectCourseAgain = selectCourseDao
+					.findByStudentIdAndNameAndCourseNumber(item.getStudentId(), item.getName(),
+							item.getCourseNumber());
+			
+			if (selectCourseAgain.isEmpty()) {
+				return new SelectCourseResponse("學生未選過該課程代碼");
+			}
+			
+			//遍歷學生選過的課程代碼
+			for (SelectCourse courseItem : selectCourseAgain) {
+				//將選課資料加入要刪除的清單中
+				SelectCourse deleteSelectCourse = new SelectCourse(item.getStudentId(), item.getName(),
+						item.getCourseNumber(), courseItem.getCourseName(), courseItem.getSchoolDay(),
+						courseItem.getStartTime(), courseItem.getEndTime(), courseItem.getCredit());
+				
+>>>>>>> 7a859556eeceafca50f802357e2a6c68c1c93bfd
 				// 新增課程資料到空的 List 裡面
 				deleteSelectList.add(deleteSelectCourse);
 			}
 		}
+<<<<<<< HEAD
 
 		// 刪除選課資料
 		selectCourseDao.deleteAll(deleteSelectList);
 
 		// 回傳刪除的選課資料及退選成功訊息
 		return new SelectCourseResponse(deleteSelectList, "退選成功");
+=======
+		
+		//刪除選課資料
+		selectCourseDao.deleteAll(deleteSelectList);
+		
+		// 回傳刪除的選課資料及刪除成功訊息
+		return new SelectCourseResponse(deleteSelectList, "刪掉學生選課");
+>>>>>>> 7a859556eeceafca50f802357e2a6c68c1c93bfd
 	}
 }

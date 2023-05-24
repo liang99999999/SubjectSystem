@@ -22,7 +22,6 @@ public class StudentServiceImpl implements StudentService {
 
 	@Autowired
 	private StudentDao studentDao;
-
 	@Autowired
 	private SelectCourseDao selectCourseDao;
 
@@ -43,15 +42,22 @@ public class StudentServiceImpl implements StudentService {
 				return new StudentResponse("學號已存在");
 			}
 		}
+<<<<<<< HEAD
 		// 新たに追加された学生データを保存
 		studentDao.saveAll(studentList);
 		// 追加された学生データと成功メッセージを返します
+=======
+		// 新增學生資料
+		studentDao.saveAll(studentList);	
+		// 回傳新增的學生資料和新增成功訊息
+>>>>>>> 7a859556eeceafca50f802357e2a6c68c1c93bfd
 		return new StudentResponse(studentList, "新增學生成功");
 	}
 
 	@Override
 	public StudentResponse deleteStudent(StudentRequest studentRequest) {
 		// 從 studentRequest 得到要新增的課程資料
+<<<<<<< HEAD
 		List<Student> deleteStudentList = StudentRequest.getStudentList();
 		// 反復学生データ
 		for (Student item : deleteStudentList) {
@@ -72,10 +78,33 @@ public class StudentServiceImpl implements StudentService {
 		studentDao.deleteAll(deleteStudentList);
 		//削除された学生データと削除成功メッセージを返します
 		return new StudentResponse(deleteStudentList, "刪除學號成功");
+=======
+	    List<Student> deleteStudentList = StudentRequest.getStudentList();
+	    // 遍歷學生資料
+	    for (Student item : deleteStudentList) {
+	    	// 確認學號及學生姓名不得為空白
+	        if (!StringUtils.hasText(item.getName()) || !StringUtils.hasText(item.getStudentId())) {
+	            return new StudentResponse("學號和學生姓名不得為空白");
+	        }
+	        // 確認學號是否不存在或是學生跟姓名錯誤
+	        if (!studentDao.existsByStudentIdAndName(item.getStudentId(), item.getName())) {
+	        	return new StudentResponse("學號不存在或是學生跟姓名錯誤");
+	        }
+	        // 確認學號學生是否還有選課
+	        if(selectCourseDao.existsByStudentIdAndName(item.getStudentId(), item.getName())){
+	        	return new StudentResponse("學號學生還有選課無法刪除");
+	        }
+	    }	    
+	    //刪除學生資料
+	    studentDao.deleteAll(deleteStudentList);
+	    //回傳刪除的學生清單及刪除成功訊息
+	    return new StudentResponse(deleteStudentList, "刪除學號成功");
+>>>>>>> 7a859556eeceafca50f802357e2a6c68c1c93bfd
 	}
 
 	@Override
 	public SelectCourseResponse getStudentData(SelectCourseRequest selectCourseRequest) {
+<<<<<<< HEAD
 
 		// 從 selectCourseRequest 取得要查詢的課程名稱列表
 		List<SelectCourse> studentDataList = selectCourseRequest.getSelectCourseList();
@@ -99,6 +128,32 @@ public class StudentServiceImpl implements StudentService {
 				return new SelectCourseResponse("學號學生沒有選課");
 			}
 			// 添增查詢的學生資料
+=======
+		
+		// 從 selectCourseRequest 取得要查詢的課程名稱列表
+		List<SelectCourse> studentDataList = selectCourseRequest.getSelectCourseList();
+		
+		// 建立空的 List 放沒問題的資料
+		List<SelectCourse> SelectCourseList = new ArrayList<>();
+		
+		// 遍歷選課資料
+		for (SelectCourse item : studentDataList) {
+			// 確認學號及學生姓名都不得為空白
+			if (!StringUtils.hasText(item.getStudentId())) {
+				return new SelectCourseResponse("學號不得為空白");
+			}
+			// 確認學號是否不存在
+			if(!studentDao.existsByStudentId(item.getStudentId())) {
+				return new SelectCourseResponse("學號不存在");
+			}
+			//用學號查詢有沒有選課資料
+			List<SelectCourse> selectCourse = selectCourseDao.findByStudentId(item.getStudentId());
+			//確認學生是否沒有選課
+			if (selectCourse.isEmpty()) {
+				return new SelectCourseResponse("學號學生沒有選課");
+			}
+			//新增查詢的學生資料
+>>>>>>> 7a859556eeceafca50f802357e2a6c68c1c93bfd
 			SelectCourseList.addAll(selectCourse);
 		}
 		// 回傳查詢的學生資料及查詢成功訊息
