@@ -15,29 +15,29 @@ public class SelectCourse{
 
 	@Id
 	@Column(name = "studentid")
-	private String studentId;
+	private String studentId;  //學號
 
 	@Column(name = "name")
-	private String name;
+	private String name;  //姓名
 
 	@Id
 	@Column(name = "course_number")
-	private String courseNumber;
+	private String courseNumber;  //課程代碼
 
 	@Column(name = "course_name")
-	private String courseName;
+	private String courseName;  //課程名稱
 
 	@Column(name = "school_day")
-	private String schoolDay;
+	private String schoolDay;  //上課星期幾
 
 	@Column(name = "start_time")
-	private LocalTime startTime;;
+	private LocalTime startTime;;  //開始時間
 
 	@Column(name = "end_time")
-	private LocalTime endTime;;
+	private LocalTime endTime;; //結束時間
 
 	@Column(name = "credit")
-	private Integer credit;
+	private Integer credit;  //學分
 
 	public SelectCourse(){
 		
@@ -122,101 +122,3 @@ public class SelectCourse{
 	}
 
 }
-
-
-//@Entity
-//@IdClass(SelectCourseId.class)
-//@Table(name = "selectcourse")
-//public class SelectCourse{
-//
-//	@Id
-//	@Column(name = "studentid")
-//	private String studentId;
-//
-//	@Column(name = "name")
-//	private String name;
-//
-//	@Id
-//	@Column(name = "course_number")
-//	private String courseNumber;
-//
-//	@Column(name = "course_name")
-//	private String courseName;
-//
-//	@Column(name = "school_day")
-//	private String schoolDay;
-//
-//	@Column(name = "start_time")
-//	private String startTime;
-//
-//	@Column(name = "end_time")
-//	private String endTime;
-//
-//	@Column(name = "credit")
-//	private int credit;
-//
-//	public String getStudentId() {
-//		return studentId;
-//	}
-//
-//	public void setStudentId(String studentId) {
-//		this.studentId = studentId;
-//	}
-//
-//	public String getName() {
-//		return name;
-//	}
-//
-//	public void setName(String name) {
-//		this.name = name;
-//	}
-//
-//	public String getCourseNumber() {
-//		return courseNumber;
-//	}
-//
-//	public void setCourseNumber(String courseNumber) {
-//		this.courseNumber = courseNumber;
-//	}
-//
-//	public String getCourseName() {
-//		return courseName;
-//	}
-//
-//	public void setCourseName(String courseName) {
-//		this.courseName = courseName;
-//	}
-//
-//	public String getSchoolDay() {
-//		return schoolDay;
-//	}
-//
-//	public void setSchoolDay(String schoolDay) {
-//		this.schoolDay = schoolDay;
-//	}
-//
-//	public String getStartTime() {
-//		return startTime;
-//	}
-//
-//	public void setStartTime(String startTime) {
-//		this.startTime = startTime;
-//	}
-//
-//	public String getEndTime() {
-//		return endTime;
-//	}
-//
-//	public void setEndTime(String endTime) {
-//		this.endTime = endTime;
-//	}
-//
-//	public int getCredit() {
-//		return credit;
-//	}
-//
-//	public void setCredit(int credit) {
-//		this.credit = credit;
-//	}
-//
-//}

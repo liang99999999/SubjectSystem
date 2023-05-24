@@ -11,10 +11,10 @@ public class Student {
 
 	@Id
 	@Column(name = "studentid")
-	private String studentId;
+	private String studentId;   //學號
 
 	@Column(name = "name")
-	private String name;
+	private String name;     //姓名
 
 	public Student() {
 
@@ -37,36 +37,3 @@ public class Student {
 	}
 
 }
-
-//@Entity
-//@Table(name = "student")
-//public class Student {
-//
-//	@Id
-//	@Column(name = "studentid")
-//	private String studentId;
-//
-//	@Column(name = "name")
-//	private String name;
-//
-//	public Student() {
-//
-//	}
-//
-//	public String getStudentId() {
-//		return studentId;
-//	}
-//
-//	public void setStudentId(String studentId) {
-//		this.studentId = studentId;
-//	}
-//
-//	public String getName() {
-//		return name;
-//	}
-//
-//	public void setName(String name) {
-//		this.name = name;
-//	}
-//
-//}

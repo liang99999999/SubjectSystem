@@ -10,34 +10,10 @@ import com.example.demo.entity.Course;
 @Repository
 public interface CourseDao extends JpaRepository<Course, String> {
 
-	boolean existsBycourseName(String courseName);
-
-
-	boolean existsByCourseNumber(String courseNumber);
-
 	List<Course> findByCourseNumber(String courseNumber);
 
 	List<Course> findByCourseNumberAndCourseName(String courseNumber, String courseName);
 
-	List<Course> findByCourseName(String subjectItem);
-
-
-	List<Course> findAllByCourseName(String subjectItem);
-
+	List<Course> findByCourseName(String courseName);
 
 }
-
-
-//@Repository
-//public interface CourseDao extends JpaRepository<Course, String> {
-//
-//	boolean existsBycourseName(String courseName);
-//
-//	List<Course> findAllByCourseName(String subjectItem);
-//
-//	boolean existsByCourseNumber(String courseNumber);
-//
-//	List<Course> findByCourseNumber(String courseNumber);
-//
-//
-//}

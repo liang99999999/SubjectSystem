@@ -7,19 +7,12 @@ import com.example.demo.vo.StudentResponse;
 
 public interface StudentService {
 	
+	// 学生データを追加する
 	public StudentResponse addStudent(StudentRequest studentRequest);
-	
+
+	// 学生データを削除する
 	public StudentResponse deleteStudent(StudentRequest studentRequest);
-	
-	public SelectCourseResponse getStudentData(SelectCourseRequest studentRequest);
+
+	// 学生の履修情報を取得する
+	public SelectCourseResponse getStudentData(SelectCourseRequest selectCourseRequest);
 }
-
-
-//public interface StudentService {
-//	
-//	public StudentResponse addStudent(StudentRequest studentRequest);
-//	
-//	public StudentResponse deleteStudent(StudentRequest studentRequest);
-//	
-//	public SelectCourseResponse getStudentData(SelectCourseRequest selectCourseRequest);
-//}
